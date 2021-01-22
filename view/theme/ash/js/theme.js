@@ -2,9 +2,19 @@
 
 var jotcache = ""; //The jot cache. We use it as cache to restore old/original jot content
 
+function PWAPermNotification() {
+	Notification.requestPermission().then(function (result) {
+		console.log(result);
+	});
+}
+
+
 $(document).ready(function () {
-	// Destroy unused perfect scrollbar in aside element
-	$("aside").perfectScrollbar("destroy");
+
+	console.log("is mobile?", is_mobile);
+	alert(is_mobile)
+
+	PWAPermNotification();
 
 	//fade in/out based on scrollTop value
 	var scrollStart;
@@ -36,29 +46,6 @@ $(document).ready(function () {
 		return false;
 	});
 
-	// add the class "selected" to group widges li if li > a does have the class group-selected
-	if ($("#sidebar-group-ul li a").hasClass("group-selected")) {
-		$("#sidebar-group-ul li a.group-selected").parent("li").addClass("selected");
-	}
-
-	// add the class "selected" to forums widges li if li > a does have the class forum-selected
-	if ($("#forumlist-sidbar-ul li a").hasClass("forum-selected")) {
-		$("#forumlist-sidbar-ul li a.forum-selected").parent("li").addClass("selected");
-	}
-
-	// add the class "active" to tabmenuli if li > a does have the class active
-	if ($("#tabmenu ul li a").hasClass("active")) {
-		$("#tabmenu ul li a.active").parent("li").addClass("active");
-	}
-
-	// give select fields an boostrap classes
-	// @todo: this needs to be changed in friendica core
-	$(".field.select, .field.custom").addClass("form-group");
-	$(".field.select > select, .field.custom > select").addClass("form-control");
-
-	// move the tabbar to the second nav bar
-	$("section .tabbar-wrapper").first().appendTo("#topbar-second > .container > #tabmenu");
-
 	// add mask css url to the logo-img container
 	//
 	// This is for firefox - we use a mask which looks like the friendica logo to apply user collers
@@ -81,17 +68,17 @@ $(document).ready(function () {
 	});
 
 	// add Jot button to the second navbar
-	let $jotButton = $("#jotOpen");
-	if ($jotButton.length) {
-		$jotButton.appendTo("#topbar-second > .container > #navbar-button");
-		if ($("#jot-popup").is(":hidden")) {
-			$jotButton.hide();
-		}
-		$jotButton.on("click", function (e) {
-			e.preventDefault();
-			jotShow();
-		});
-	}
+	// let $jotButton = $("#jotOpen");
+	// if ($jotButton.length) {
+	// 	$jotButton.appendTo("#topbar-second > .container > #navbar-button");
+	// 	if ($("#jot-popup").is(":hidden")) {
+	// 		$jotButton.hide();
+	// 	}
+	// 	$jotButton.on("click", function (e) {
+	// 		e.preventDefault();
+	// 		jotShow();
+	// 	});
+	// }
 
 	let $body = $("body");
 

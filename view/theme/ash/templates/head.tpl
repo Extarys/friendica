@@ -6,53 +6,27 @@
 <meta name="viewport" content="initial-scale=1.0">
 
 {{* All needed css files - Note: css must be inserted before js files *}}
-<link rel="stylesheet" href="view/global.css?v={{$smarty.const.FRIENDICA_VERSION}}" type="text/css" media="all" />
-<link rel="stylesheet" href="view/asset/jquery-colorbox/example5/colorbox.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet" href="view/asset/jgrowl/jquery.jgrowl.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet"
-	href="view/asset/jquery-datetimepicker/build/jquery.datetimepicker.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
+
 <link rel="stylesheet"
 	href="view/asset/perfect-scrollbar/dist/css/perfect-scrollbar.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
+	type="text/css" media="screen" />
+<link rel="stylesheet" href="view/asset/fork-awesome/css/fork-awesome.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
 
 <link rel="stylesheet"
 	href="view/theme/ash/frameworks/bootstrap/css/bootstrap.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
-<link rel="stylesheet"
-	href="view/theme/ash/frameworks/bootstrap/css/bootstrap-theme.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet" href="view/asset/fork-awesome/css/fork-awesome.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet"
-	href="view/theme/ash/frameworks/jasny/css/jasny-bootstrap.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet"
-	href="view/theme/ash/frameworks/bootstrap-select/css/bootstrap-select.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
+
 <link rel="stylesheet"
 	href="view/theme/ash/frameworks/ekko-lightbox/ekko-lightbox.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
 <link rel="stylesheet"
-	href="view/theme/ash/frameworks/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet"
 	href="view/theme/ash/frameworks/justifiedGallery/justifiedGallery.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet"
-	href="view/theme/ash/frameworks/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
-<link rel="stylesheet"
-	href="view/theme/ash/frameworks/bootstrap-toggle/css/bootstrap-toggle.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
 <link rel="stylesheet" href="view/theme/ash/font/open_sans/open-sans.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
 
 {{* own css files *}}
-<link rel="stylesheet" href="view/theme/ash/css/hovercard.css?v={{$smarty.const.FRIENDICA_VERSION}}" type="text/css"
-	media="screen" />
 <link rel="stylesheet" href="view/theme/ash/css/font-awesome.custom.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
 
@@ -76,10 +50,11 @@
 		title="Search in Friendica" />
 
 
-	{{* The js files we use *}}
+	{{* IE shim *}}
 	<!--[if IE]>
 <script type="text/javascript" src="https://html5shiv.googlecode.com/svn/trunk/html5.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 <![endif]-->
+	{{* Vendor Javascript *}}
 	<script type="text/javascript" src="view/js/modernizr.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	<script type="text/javascript" src="view/asset/jquery/dist/jquery.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
 	</script>
@@ -88,13 +63,6 @@
 		src="view/asset/textcomplete/dist/textcomplete.min.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	<script type="text/javascript" src="view/js/autocomplete.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	<script type="text/javascript"
-		src="view/asset/jquery-colorbox/jquery.colorbox-min.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
-	<script type="text/javascript" src="view/asset/jgrowl/jquery.jgrowl.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
-	</script>
-	<script type="text/javascript"
-		src="view/asset/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
-	</script>
-	<script type="text/javascript"
 		src="view/asset/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
 	</script>
 	<script type="text/javascript"
@@ -102,22 +70,13 @@
 	<script type="text/javascript" src="view/asset/base64/base64.min.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	<script type="text/javascript" src="view/asset/dompurify/dist/purify.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
 	</script>
-	<script type="text/javascript" src="view/js/main.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 
 	<script type="text/javascript"
 		src="view/theme/ash/frameworks/bootstrap/js/bootstrap.min.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	<script type="text/javascript"
-		src="view/theme/ash/frameworks/jasny/js/jasny-bootstrap.custom.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
-	<script type="text/javascript"
-		src="view/theme/ash/frameworks/bootstrap-select/js/bootstrap-select.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
-	</script>
-	<script type="text/javascript"
 		src="view/theme/ash/frameworks/ekko-lightbox/ekko-lightbox.min.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	<script type="text/javascript"
 		src="view/theme/ash/frameworks/justifiedGallery/jquery.justifiedGallery.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
-	</script>
-	<script type="text/javascript"
-		src="view/theme/ash/frameworks/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js?v={{$smarty.const.FRIENDICA_VERSION}}">
 	</script>
 	<script type="text/javascript"
 		src="view/theme/ash/frameworks/flexMenu/flexmenu.custom.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
@@ -128,13 +87,15 @@
 	<script type="text/javascript"
 		src="view/theme/ash/frameworks/sticky-kit/jquery.sticky-kit.min.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 
-	{{* own js files *}}
-	<script type="text/javascript" src="view/theme/ash/js/theme.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
-	<script type="text/javascript" src="view/theme/ash/js/modal.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
+	{{* Custom Javascript *}}
+	{{* <script type="text/javascript" src="view/js/main.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script> *}}
+	{{* <script type="text/javascript" src="view/theme/ash/js/theme.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
+<script type="text/javascript" src="view/theme/ash/js/modal.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script> *}}
 	{{if ! $block_public}}
 		<script type="text/javascript" src="view/theme/ash/js/hovercard.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	{{/if}}
-	<script type="text/javascript" src="view/theme/ash/js/textedit.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
+	{{* <script type="text/javascript" src="view/theme/ash/js/textedit.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
+*}}
 
 	{{* Include the strings which are needed for some js functions (e.g. translation)
 They are loaded into the html <head> so that js functions can use them *}}

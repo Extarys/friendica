@@ -1,9 +1,9 @@
 <?php
 /*
  * Name: ash
- * Description: Bootstrap V3 theme. The theme is currently under construction, so it is far from finished. For further information have a look at the <a href="https://github.com/friendica/friendica/tree/develop/view/theme/ash/README.md">ReadMe</a>.
- * Version: V.0.8.5
- * Author: Rabuzarus <https://friendica.kommune4.de/profile/rabuzarus>
+ * Description: Slick and modern Bootstrap 5 UI. For more info please look at the <a href="https://github.com/friendica/friendica/tree/develop/view/theme/ash/README.md">ReadMe</a>.
+ * Version: v0.1.0 (2021-01-22)
+ * Author: Extarys <https://pirati.ca/profile/extarys>, with code from 
  *
  */
 
