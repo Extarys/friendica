@@ -1,4 +1,4 @@
-# ash
+# ash (might change later)
 
 ### A bootstrap based theme for friendica
 
@@ -15,6 +15,16 @@ I concentrated on 3 topics:
 -   modern Browser with JS enabled (Chrome/Chromium is recommended)
 -   if you update the theme you should disable and enable the theme again from the admin panel (to apply possible new hooks)
 
+## Develop/fix this theme
+
+Eventually we can find a way for PHP to generate minified/optimized files from the source one time.
+
+-   Make sure you have NodeJS and Yarn installed
+-   cd into this directory then type: `yarn`, this will install the dependencies
+-   When testing, use `yarn run build:dev`
+-   For PRs, use `yarn run build:dev` too so others can review your changes
+-   Someone with write access on the repo will have to run `yarn run build:prod` to generate production files.
+
 **Note:**
 While ash is doing its job very well in most cases, there still is some work to do. Some templates are still missing and will be added in future versions.
 
@@ -25,7 +35,7 @@ What frameworks do we want to use? How should default friendica look like? And h
 Coding a theme is much work but you will get a really good insight of the limitations of friendica and can start a discussion about doing things differently.
 So join the discussion at the friendica forums ;-)
 
-If anyone wants to contribute to this theme he/she is welcome to do this.
+If anyone wants to contribute to this theme he/she is welcome to do so.
 
 PS:
 Don't blame me too much for ugly code and hacks. Fix it ;-)

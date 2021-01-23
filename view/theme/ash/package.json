@@ -1,5 +1,20 @@
 {
   "name": "ash",
   "version": "1.0.0",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build:dev": "gulp buildDev",
+    "build:prod": "gulp buildProd",
+    "build": "gulp buildProd",
+    "lint": "eslint --ext .js,.vue src test/unit"
+  },
+  "devDependencies": {
+    "fibers": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-terser": "^2.0.1",
+    "sass": "^1.32.5",
+    "terser": "^5.5.1",
+    "uglify-js": "^3.12.5"
+  }
 }
