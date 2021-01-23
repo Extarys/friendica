@@ -8,13 +8,69 @@ function PWAPermNotification() {
 	});
 }
 
+function initWidget(inflated, deflated) {
+	var elInf = document.getElementById(inflated);
+	var elDef = document.getElementById(deflated);
+
+	if (!elInf || !elDef) {
+		return;
+	}
+	if (localStorage.getItem(window.location.pathname.split("/")[1] + ":" + inflated) != "none") {
+		elInf.style.display = "block";
+		elDef.style.display = "none";
+	} else {
+		elInf.style.display = "none";
+		elDef.style.display = "block";
+	}
+}
+
 
 $(document).ready(function () {
 
-	console.log("is mobile?", is_mobile);
-	alert(is_mobile)
+	// console.log("is mobile?", is_mobile);
 
 	PWAPermNotification();
+
+	// Bootstrap 5 - Tooltips
+	let bs_tooltip_options = {
+		container: "body",
+		placement: "auto",
+		delay: {
+			show: 500,
+			hide: 100,
+		},
+	}
+	var bs_tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var bs_tooltipList = bs_tooltipTriggerList.map(function (tooltipTriggerEl) {
+		return new bootstrap.Tooltip(tooltipTriggerEl, bs_tooltip_options)
+	})
+
+	// initialize the bootstrap tooltips
+	// $body.tooltip({
+	// 	selector: '[data-bs-toggle="tooltip"]',
+	// 	container: "body",
+	// 	animation: true,
+	// 	html: true,
+	// 	placement: "auto",
+	// 	trigger: "hover",
+	// 	delay: {
+	// 		show: 500,
+	// 		hide: 100,
+	// 	},
+	// 	sanitizeFn: function (content) {
+	// 		return DOMPurify.sanitize(content);
+	// 	},
+	// });
+
+
+	// composer - jot
+	var composeTextarea = document.getElementById("composeTextarea");
+	var heightLimit = 10;
+
+	composeTextarea.oninput = function () {
+		composeTextarea.style.height = ""; /* Reset the height*/
+		composeTextarea.style.height = Math.min(composeTextarea.scrollHeight, heightLimit) + "rem";
+	};
 
 	//fade in/out based on scrollTop value
 	var scrollStart;
@@ -106,22 +162,7 @@ $(document).ready(function () {
 		}
 	});
 
-	// initialize the bootstrap tooltips
-	$body.tooltip({
-		selector: '[data-toggle="tooltip"]',
-		container: "body",
-		animation: true,
-		html: true,
-		placement: "auto",
-		trigger: "hover",
-		delay: {
-			show: 500,
-			hide: 100,
-		},
-		sanitizeFn: function (content) {
-			return DOMPurify.sanitize(content);
-		},
-	});
+
 
 	// initialize the bootstrap-select
 	$(".selectpicker").selectpicker();
@@ -210,7 +251,7 @@ $(document).ready(function () {
 		var headingContent = heading.html();
 		// create a new element with the content of the heading
 		var newText =
-			'<h4 class="heading" data-toggle="tooltip" title="' + headingContent + '">' + headingContent + "</h4>";
+			'<h4 class="heading" data-bs-toggle="tooltip" title="' + headingContent + '">' + headingContent + "</h4>";
 		// remove the old heading element
 		heading.remove(),
 			// put the new element to the second nav bar

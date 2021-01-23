@@ -89,8 +89,8 @@
 
 	{{* Custom Javascript *}}
 	{{* <script type="text/javascript" src="view/js/main.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script> *}}
-	{{* <script type="text/javascript" src="view/theme/ash/js/theme.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
-<script type="text/javascript" src="view/theme/ash/js/modal.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script> *}}
+	<script type="text/javascript" src="view/theme/ash/js/theme.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
+	{{* <script type="text/javascript" src="view/theme/ash/js/modal.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script> *}}
 	{{if ! $block_public}}
 		<script type="text/javascript" src="view/theme/ash/js/hovercard.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	{{/if}}

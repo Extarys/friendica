@@ -47,19 +47,17 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0" role="menubar">
 					{{if $nav.network}}
 						<li class="nav-item">
-							<a accesskey="n" class="nav-link {{$sel.network}}" href="{{$nav.network.0}}" data-toggle="tooltip"
-								aria-label="{{$nav.network.3}}" title="{{$nav.network.3}}">
-								<i class="fa fa-lg fa-fw fa-th" aria-hidden="true"></i><span id="net-update"
-									class="nav-network-badge badge nav-notification"></span>
+							<a accesskey="n" class="nav-link {{$sel.network}}" href="{{$nav.network.0}}"
+								data-bs-toggle="tooltip" aria-label="{{$nav.network.3}}" title="{{$nav.network.3}}">
+								<i class="fa fa-lg fa-fw fa-th" aria-hidden="true"></i>
 							</a>
 						</li>
 					{{/if}}
 					{{if $nav.home}}
 						<li class="nav-item">
-							<a accesskey="p" class="nav-link {{$sel.home}}" href="{{$nav.home.0}}" data-toggle="tooltip"
+							<a accesskey="p" class="nav-link {{$sel.home}}" href="{{$nav.home.0}}" data-bs-toggle="tooltip"
 								aria-label="{{$nav.home.3}}" title="{{$nav.home.3}}">
-								<i class="fa fa-lg fa-home fa-fw" aria-hidden="true"></i><span id="home-update"
-									class="nav-home-badge badge nav-notification"></span>
+								<i class="fa fa-lg fa-home fa-fw" aria-hidden="true"></i>
 							</a>
 						</li>
 					{{/if}}
@@ -67,14 +65,15 @@
 					{{if $nav.community}}
 						<li class="nav-item">
 							<a accesskey="c" class="nav-link {{$sel.community}}" href="{{$nav.community.0}}"
-								data-toggle="tooltip" aria-label="{{$nav.community.3}}" title="{{$nav.community.3}}"><i
-									class="fa fa-lg fa-bullseye fa-fw" aria-hidden="true"></i></a>
+								data-bs-toggle="tooltip" aria-label="{{$nav.community.3}}" title="{{$nav.community.3}}"><i
+									class="fa fa-lg fa-bullseye fa-fw" aria-hidden="true"></i>
+							</a>
 						</li>
 					{{/if}}
 
 					{{if $nav.messages}}
 						<li class="nav-item hidden-xs">
-							<a accesskey="m" id="nav-messages-link" href="{{$nav.messages.0}}" data-toggle="tooltip"
+							<a accesskey="m" id="nav-messages-link" href="{{$nav.messages.0}}" data-bs-toggle="tooltip"
 								aria-label="{{$nav.messages.1}}" title="{{$nav.messages.1}}"
 								class="nav-link {{$sel.messages}}"><i class="fa fa-envelope fa-lg fa-fw"
 									aria-hidden="true"></i><span id="mail-update"
@@ -85,7 +84,7 @@
 
 					{{if $nav.events}}
 						<li class="nav-item hidden-xs">
-							<a accesskey="e" id="nav-events-link" href="{{$nav.events.0}}" data-toggle="tooltip"
+							<a accesskey="e" id="nav-events-link" href="{{$nav.events.0}}" data-bs-toggle="tooltip"
 								aria-label="{{$nav.events.1}}" title="{{$nav.events.1}}" class="nav-link"><i
 									class="fa fa-lg fa-calendar fa-fw"></i>
 							</a>
@@ -94,7 +93,7 @@
 
 					{{if $nav.contacts}}
 						<li class="nav-item hidden-xs">
-							<a accesskey="k" id="nav-contacts-link" href="{{$nav.contacts.0}}" data-toggle="tooltip"
+							<a accesskey="k" id="nav-contacts-link" href="{{$nav.contacts.0}}" data-bs-toggle="tooltip"
 								aria-label="{{$nav.contacts.1}}" title="{{$nav.contacts.1}}"
 								class="nav-link {{$sel.contacts}} {{$nav.contacts.2}}"><i class="fa fa-users fa-lg fa-fw"></i>
 							</a>
@@ -109,6 +108,7 @@
 								aria-expanded="false" aria-controls="nav-notifications-menu">
 								<span id="notification-update" class="nav-notification-badge badge nav-notification"></span>
 								<i class="fa fa-bell fa-lg" aria-label="{{$nav.notifications.1}}"></i>
+								<span class="badge bg-secondary">4</span>
 							</button>
 
 							{{* The notifications dropdown menu. There are two parts of menu. The second is at the bottom of this file. It is loaded via js. Look at nav-notifications-template *}}
@@ -120,7 +120,7 @@
 									{{$nav.notifications.1}}
 									<div class="dropdown-header-link">
 										<button role="menuitem" type="button" class="btn-link" onclick="notificationMarkAll();"
-											data-toggle="tooltip" aria-label="{{$nav.notifications.mark.3}}"
+											data-bs-toggle="tooltip" aria-label="{{$nav.notifications.mark.3}}"
 											title="{{$nav.notifications.mark.3}}">{{$nav.notifications.mark.1}}</button>
 									</div>
 								</li>
@@ -320,13 +320,13 @@
 			<div class="pull-right">
 				<ul class="nav navbar-nav navbar-right">
 					<li role="presentation">
-						<a href="login?mode=none" id="nav-login" data-toggle="tooltip" aria-label="{{$nav.login.3}}"
+						<a href="login?mode=none" id="nav-login" data-bs-toggle="tooltip" aria-label="{{$nav.login.3}}"
 							title="{{$nav.login.3}}">
 							<i class="fa fa-sign-in fa-fw" aria-hidden="true"></i>
 						</a>
 					</li>
 					<li role="presentation">
-						<a href="{{$nav.about.0}}" id="nav-about" data-toggle="tooltip" aria-label="{{$nav.about.3}}"
+						<a href="{{$nav.about.0}}" id="nav-about" data-bs-toggle="tooltip" aria-label="{{$nav.about.3}}"
 							title="{{$nav.about.3}}">
 							<i class="fa fa-info fa-fw" aria-hidden="true"></i>
 						</a>
@@ -345,7 +345,7 @@
 			<!-- <img class="hidden-xs" src="{{$nav.userinfo.icon}}" alt="{{$nav.userinfo.name}}" style="max-width:33px; max-height:33px; min-width:33px; min-height:33px; width:33px; height:33px;"> -->
 			<div class="form-group form-group-search">
 				<input id="nav-search-input-field-mobile" class="form-control form-search" type="text" name="q"
-					data-toggle="tooltip" title="{{$search_hint}}" placeholder="{{$nav.search.1}}">
+					data-bs-toggle="tooltip" title="{{$search_hint}}" placeholder="{{$nav.search.1}}">
 				<button class="btn btn-default btn-sm form-button-search" type="submit">{{$nav.search.1}}</button>
 			</div>
 		</form>
@@ -370,7 +370,7 @@
 						class="userinfo click-card" tabIndex="-1"><img data-src="{1}"></a></div>
 				<a href="{0}" class="notif-desc-wrapper media-body">
 					{2}
-					<div><time class="notif-when time" data-toggle="tooltip" title="{5}">{3}</time></div>
+					<div><time class="notif-when time" data-bs-toggle="tooltip" title="{5}">{3}</time></div>
 				</a>
 			</div>
 		</li>

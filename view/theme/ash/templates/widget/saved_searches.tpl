@@ -22,7 +22,7 @@
 		</ul>
 		<div class="clearfix"></div>
 	</div>
-	{{* <script>
-initWidget('saved-search-list', 'saved-search-list-inflated');
-</script> *}}
+	<script>
+		initWidget('saved-search-list', 'saved-search-list-inflated');
+	</script>
 {{/if}}

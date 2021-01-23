@@ -1,9 +1,28 @@
 {{* The button to open the jot - in This theme we move the button with js to the second nav bar *}}
-<a class="btn btn-sm btn-primary pull-right" id="jotOpen"
+{{* <a class="btn btn-sm btn-primary pull-right" id="jotOpen"
 	href="compose/{{$posttype}}{{if $content}}?body={{$content}}{{/if}}" aria-label="{{$new_post}}"
-	title="{{$new_post}}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+title="{{$new_post}}"><i class="fa fa-pencil-square-o fa-2x"></i></a> *}}
+<div id="text-composer" class="card border-primary">
+	<div class="card-header">{{$new_post}}</div>
+	<div class="card-body">
+		<h5 class="card-title">Primary card title</h5>
+		<div class="card-text">
+			<div class="form-floating">
+				<textarea class="form-control" id="composeTextarea" placeholder="What's on your mind?"></textarea>
+				<label for="composeTextarea">What's on your mind?</label>
+			</div>
+		</div>
+	</div>
+	<div class="card-footer bg-transparent p-1">
+		<button class="btn btn-primary" type="submit" id="compose-submit" name="submit"
+			data-loading-text="{{$loading}}">
+			<i class="fa fa-paper-plane fa-fw" aria-hidden="true"></i> {{$share}}
+		</button>
+	</div>
+</div>
 
-<div id="jot-content">
+
+<div id="jot-content" style="display: none">
 	<div id="jot-sections">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"

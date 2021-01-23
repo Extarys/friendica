@@ -10,7 +10,7 @@ Some parts of this template will be moved by js to other places (see theme.js) -
 
 					<div class="form-group form-group-search">
 						<input type="text" name="q" id="search-text" class="search-input form-control form-search"
-							data-toggle="tooltip" title="{{$search_hint}}" placeholder="{{$search_label}}"
+							data-bs-toggle="tooltip" title="{{$search_hint}}" placeholder="{{$search_label}}"
 							value="{{$s}}" />
 						<button id="search-submit" class="btn btn-default btn-sm form-button-search"
 							type="submit">{{$search_label}}</button>
@@ -51,7 +51,7 @@ Some parts of this template will be moved by js to other places (see theme.js) -
 	{{if $s}}
 		<a href="search/saved/add?term={{$q}}&amp;return_url={{$return_url}}" class="btn btn-sm btn-primary pull-right"
 			id="search-save" title="{{$save_label}}" aria-label="{{$save_label}}" value="{{$save_label}}"
-			data-toggle="tooltip">
+			data-bs-toggle="tooltip">
 			{{if $mode == "tag"}}
 				<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
 			{{else}}

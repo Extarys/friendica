@@ -11,7 +11,7 @@
 		<div class="group-actions pull-right">
 			<button type="button" id="group-rename" class="btn btn-clear"
 				onclick="showHide('group-edit-wrapper'); showHide('group-edit-header'); return false;"
-				title="{{$edit_name}}" data-toggle="tooltip">
+				title="{{$edit_name}}" data-bs-toggle="tooltip">
 				<i class="fa fa-pencil" aria-hidden="true"></i>
 			</button>
 			{{if $drop}}{{$drop nofilter}}{{/if}}

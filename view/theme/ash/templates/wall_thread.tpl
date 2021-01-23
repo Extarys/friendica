@@ -183,7 +183,7 @@ as the value of $top_child_total (this is done at the end of this file)
 										{{/if}}
 										{{if $item.lock}}
 											<span class="navicon lock fakelink" onClick="lockview(event, 'item', {{$item.id}});"
-												title="{{$item.lock}}" data-toggle="tooltip">
+												title="{{$item.lock}}" data-bs-toggle="tooltip">
 												&nbsp;<small><i class="fa fa-lock" aria-hidden="true"></i></small>
 											</span>
 										{{/if}}
@@ -193,7 +193,7 @@ as the value of $top_child_total (this is done at the end of this file)
 										<div id="wall-item-ago-{{$item.id}}" class="wall-item-ago">
 											<small>
 												<a href="{{$item.plink.orig}}">
-													<span class="time" title="{{$item.localtime}}" data-toggle="tooltip">
+													<span class="time" title="{{$item.localtime}}" data-bs-toggle="tooltip">
 														<time class="dt-published"
 															datetime="{{$item.localtime}}">{{$item.ago}}</time>
 													</span>
@@ -253,7 +253,7 @@ as the value of $top_child_total (this is done at the end of this file)
 										<span class="text-muted">
 											<small>
 												<a class="time" href="{{$item.plink.orig}}" title="{{$item.localtime}}"
-													data-toggle="tooltip">{{$item.ago}}</a>
+													data-bs-toggle="tooltip">{{$item.ago}}</a>
 												{{if $item.location_html}}&nbsp;&mdash;&nbsp;({{$item.location_html nofilter}}){{/if}}
 												{{if $item.owner_self}}
 													{{include file="sub/delivery_count.tpl" delivery=$item.delivery}}
