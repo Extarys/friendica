@@ -102,33 +102,42 @@
 
 					{{* The notifications dropdown *}}
 					{{if $nav.notifications}}
-						<li id="nav-notification" class="nav-item" role="presentation">
-							<button type="button" id="nav-notifications-menu-btn" class="btn btn-link dropdown-toggle"
-								data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-haspopup="true"
-								aria-expanded="false" aria-controls="nav-notifications-menu">
-								<span id="notification-update" class="nav-notification-badge badge nav-notification"></span>
+						<li id="nav-notification" class="nav-item dropdown" role="presentation">
+							<a id="nav-notifications-menu-btn" class="nav-link position-relative" data-bs-toggle="dropdown"
+								data-bs-display="static" aria-expanded="false" aria-haspopup="true" aria-expanded="false"
+								aria-controls="nav-notifications-menu">
+								{{* <span id="notification-update" class="nav-notification-badge badge nav-notification"></span> *}}
 								<i class="fa fa-bell fa-lg" aria-label="{{$nav.notifications.1}}"></i>
-								<span class="badge bg-secondary">4</span>
-							</button>
+								{{* <span class="badge bg-danger user-select-none position-absolute bottom-0 end-0"></span> *}}
+								<span
+									class="position-absolute  start-100 translate-middle badge rounded-circle bg-danger p-1"><span
+										class="visually-hidden">unread notifications</span></span>
+							</a>
 
 							{{* The notifications dropdown menu. There are two parts of menu. The second is at the bottom of this file. It is loaded via js. Look at nav-notifications-template *}}
-							<ul id="nav-notifications-menu" class="dropdown-menu" role="menu"
+							<div id="nav-notifications-menu" class="dropdown-menu" style="width: 350px;" role="menu"
 								aria-labelledby="nav-notifications-menu-btn">
-								{{* the following list entry must have the id "nav-notificaionts-mark-all". Without it this isn't visable. ....strange behavior :-/ *}}
-								<li role="presentation" id="nav-notifications-mark-all" class="dropdown-header">
-									<div class="arrow"></div>
-									{{$nav.notifications.1}}
-									<div class="dropdown-header-link">
+								<div class="card-body position-relative px-2 py-1">
+									<h5 class="card-title">{{$nav.notifications.1}}</h5>
+									<div class="position-absolute top-10 end-10">
 										<button role="menuitem" type="button" class="btn-link" onclick="notificationMarkAll();"
 											data-bs-toggle="tooltip" aria-label="{{$nav.notifications.mark.3}}"
-											title="{{$nav.notifications.mark.3}}">{{$nav.notifications.mark.1}}</button>
+											title="{{$nav.notifications.mark.3}}">{{$nav.notifications.mark.1}}...5</button>
 									</div>
-								</li>
+								</div>
 
-								<li role="presentation">
-									<p role="menuitem" class="text-muted"><i>{{$emptynotifications}}</i></p>
-								</li>
-							</ul>
+								{{* the following list entry must have the id "nav-notificaionts-mark-all". Without it this isn't visable. ....strange behavior :-/ *}}
+								{{* <h2 role="presentation" id="nav-notifications-mark-all" class="dropdown-header">
+									<div class="arrow"></div>
+									...
+
+								</h2> *}}
+
+								<div class="dropdown-divider"></div>
+								<p role="presentation">
+								<p role="menuitem" class="text-muted"><i>{{$emptynotifications}}</i></p>
+								</p>
+							</div>
 						</li>
 					{{/if}}
 

@@ -60,6 +60,37 @@ __ready(function () {
 		return new bootstrap.Tooltip(tooltipTriggerEl, bs_tooltip_options)
 	})
 
+	// Bootstrap 5 - Toasts
+	let bs_toastList_option = {
+
+	}
+	var bs_toastElList = [].slice.call(document.querySelectorAll('.toast'))
+	var bs_toastList = bs_toastElList.map(function (toastEl) {
+		return new bootstrap.Toast(toastEl, bs_toastList_option)
+	})
+
+	function createToast() {
+		let toastBase = '<div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">\
+		<div class="toast-header"><img src="..." class="rounded me-2" alt="...">\
+		<strong class="me-auto">Bootstrap</strong>\
+    <small>11 mins ago</small>\
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>\
+  </div>\
+  <div class="toast-body">\
+					Hello, world! This is a toast message.\
+  </div>\
+</div>'
+		document.body.append(createToast);
+	}
+
+	createToast();
+
+	// Notification section
+
+
+
+
+
 	// initialize the bootstrap tooltips
 	// $body.tooltip({
 	// 	selector: '[data-bs-toggle="tooltip"]',

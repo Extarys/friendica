@@ -5,7 +5,7 @@ title="{{$new_post}}"><i class="fa fa-pencil-square-o fa-2x"></i></a> *}}
 <div id="text-composer" class="card border-primary">
 	<div class="card-header">{{$new_post}}</div>
 	<div class="card-body">
-		<h5 class="card-title">Primary card title</h5>
+		{{* <h5 class="card-title">Primary card title</h5> *}}
 		<div class="card-text">
 			<div class="form-floating">
 				<textarea class="form-control" id="composeTextarea" placeholder="What's on your mind?"></textarea>
@@ -14,7 +14,7 @@ title="{{$new_post}}"><i class="fa fa-pencil-square-o fa-2x"></i></a> *}}
 		</div>
 	</div>
 	<div class="card-footer bg-transparent p-1">
-		<button class="btn btn-primary" type="submit" id="compose-submit" name="submit"
+		<button class="btn btn-primary float-end" type="submit" id="compose-submit" name="submit"
 			data-loading-text="{{$loading}}">
 			<i class="fa fa-paper-plane fa-fw" aria-hidden="true"></i> {{$share}}
 		</button>

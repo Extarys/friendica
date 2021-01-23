@@ -8,14 +8,20 @@
 {{* All needed css files - Note: css must be inserted before js files *}}
 
 <link rel="stylesheet"
+	href="view/theme/ash/frameworks/bootstrap/css/bootstrap.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
+	type="text/css" media="screen" />
+<link rel="stylesheet" href="view/theme/ash/font/open_sans/open-sans.css?v={{$smarty.const.FRIENDICA_VERSION}}"
+	type="text/css" media="screen" />
+<link rel="stylesheet" href="view/theme/ash/css/main.css?v={{$smarty.const.FRIENDICA_VERSION}}" type="text/css"
+	media="screen" />
+
+<link rel="stylesheet"
 	href="view/asset/perfect-scrollbar/dist/css/perfect-scrollbar.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
 <link rel="stylesheet" href="view/asset/fork-awesome/css/fork-awesome.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
 
-<link rel="stylesheet"
-	href="view/theme/ash/frameworks/bootstrap/css/bootstrap.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
+
 
 <link rel="stylesheet"
 	href="view/theme/ash/frameworks/ekko-lightbox/ekko-lightbox.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
@@ -23,8 +29,7 @@
 <link rel="stylesheet"
 	href="view/theme/ash/frameworks/justifiedGallery/justifiedGallery.min.css?v={{$smarty.const.FRIENDICA_VERSION}}"
 	type="text/css" media="screen" />
-<link rel="stylesheet" href="view/theme/ash/font/open_sans/open-sans.css?v={{$smarty.const.FRIENDICA_VERSION}}"
-	type="text/css" media="screen" />
+
 
 {{* own css files *}}
 <link rel="stylesheet" href="view/theme/ash/css/font-awesome.custom.css?v={{$smarty.const.FRIENDICA_VERSION}}"
@@ -89,7 +94,7 @@
 
 	{{* Custom Javascript *}}
 	{{* <script type="text/javascript" src="view/js/main.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script> *}}
-	<script type="text/javascript" src="view/theme/ash/js/theme.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
+	<script type="text/javascript" src="view/theme/ash/js/index.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
 	{{* <script type="text/javascript" src="view/theme/ash/js/modal.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script> *}}
 	{{if ! $block_public}}
 		<script type="text/javascript" src="view/theme/ash/js/hovercard.js?v={{$smarty.const.FRIENDICA_VERSION}}"></script>
