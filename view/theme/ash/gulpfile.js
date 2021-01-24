@@ -16,6 +16,11 @@ let js_out = __dirname + "/js";
 // 	gulp.watch('./source/scss/**/*.scss', ['sass']);
 // });
 
+function watchAll(cb) {
+	watch('./source/scss/**/*.scss', cssDev);
+	watch('./source/js/index.js', javascriptDev);
+}
+
 
 function javascriptProd(cb) {
 	src('./source/js/index.js')
@@ -46,4 +51,5 @@ function cssDev(cb) {
 
 exports.buildProd = parallel(javascriptProd, cssProd);
 exports.buildDev = parallel(javascriptDev, cssDev);
+exports.watchAll = watchAll;
 

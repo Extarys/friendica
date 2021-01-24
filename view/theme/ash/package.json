@@ -5,7 +5,7 @@
   "scripts": {
     "build:dev": "gulp buildDev",
     "build:prod": "gulp buildProd",
-    "build": "gulp buildProd",
+    "watch": "gulp watchAll",
     "lint": "eslint --ext .js,.vue src test/unit"
   },
   "devDependencies": {
