@@ -10,6 +10,14 @@ Everytime when a children with top_level = 2 comes up $top_child_nr rises with 1
 The div get's closed if thread_level = 2 and the value of $top_child_nr is the same
 as the value of $top_child_total (this is done at the end of this file)
 *}}
+
+<pre style="height: 200px; ">
+{{* {{$item|@debug_print_var} *}}
+{{var_dump($item)}}
+</pre>
+
+
+
 {{if $item.thread_level==1}}
 	{{assign var="top_child_total" value=count($item.children)}}
 	{{assign var="top_child_nr" value=0}}
@@ -17,6 +25,9 @@ as the value of $top_child_total (this is done at the end of this file)
 {{if $item.thread_level==2}}
 	{{assign var="top_child_nr" value=$top_child_nr+1 scope=parent}}
 {{/if}}
+
+
+{{* {include 'wall_thread.tpl'} *}}
 
 {{if $item.thread_level==2 && $top_child_nr==1}}
 	<div class="comment-container">
@@ -38,11 +49,6 @@ as the value of $top_child_total (this is done at the end of this file)
 </div>
 <div id="collapsed-comments-{{$item.id}}" class="collapsed-comments" style="display: none;">
 	*}}
-			<script>
-				console.info("thread_level", "{{$item.thread_level}}");
-				console.info("id", "{{$item.id}}");
-				console.info("num_comments", "{{$item.num_comments}}");		
-			</script>
 			{{if $item.thread_level<3}}
 				{{* <div class="hide-comments-outer-wrapper">
 					<div class="hide-comments-outer fakelink" onclick="showHideComments({{$item.id}});">
@@ -81,7 +87,7 @@ as the value of $top_child_total (this is done at the end of this file)
 
 		{{* Use a different div container in dependence max thread-level = 7 *}}
 		{{if $item.thread_level<7}}
-			<div class="item-{{$item.id}} wall-item-container card {{$item.indent}} {{$item.network}} thread_level_{{$item.thread_level}} {{if $item.thread_level==1}}panel-body h-entry{{else}}u-comment h-cite{{/if}}"
+			<div class="item-{{$item.id}} wall-item-container card {{$item.indent}} {{$item.network}} thread_level_{{$item.thread_level}} {{if $item.thread_level==1}}card-body h-entry{{else}}u-comment h-cite{{/if}}"
 				id="item-{{$item.guid}}">
 				<!-- wall-item-container -->
 			{{else}}
@@ -150,7 +156,7 @@ as the value of $top_child_total (this is done at the end of this file)
 
 						{{* contact info header*}}
 						<div role="heading" aria-level="{{$item.thread_level}}">
-							<div class="preferences">
+							<div class="small-info">
 								{{if $item.network_icon != ""}}
 									<span class="wall-item-network"><i class="fa fa-{{$item.network_icon}}"
 											title="{{$item.network_name}}" aria-hidden="true"></i></span>
@@ -166,7 +172,7 @@ as the value of $top_child_total (this is done at the end of this file)
 								{{/if}}
 							</div>
 							{{if $item.thread_level==1}}
-								<div class="contact-info hidden-sm hidden-xs media-body">
+								<div class="card-heading author-info">
 									<!-- <= For computer -->
 									<h4 class="media-heading">
 										<a href="{{$item.profile_url}}" title="{{$item.linktitle}}"
@@ -220,28 +226,6 @@ as the value of $top_child_total (this is done at the end of this file)
 										{{/if}}
 									</div>
 									{{* @todo $item.created have to be inserted *}}
-								</div>
-
-								{{* contact info header for smartphones *}}
-								<div class="contact-info-xs hidden-lg hidden-md">
-									<!-- <= For smartphone (responsive) -->
-									<h5 class="media-heading">
-										<a href="{{$item.profile_url}}" title="{{$item.linktitle}}"
-											class="wall-item-name-link userinfo hover-card"><span>{{$item.name}}</span></a>
-										<p class="text-muted">
-											<small>
-												<a class="time" href="{{$item.plink.orig}}"><span
-														class="wall-item-ago">{{$item.ago}}</span></a>
-												{{if $item.location_html}}&nbsp;&mdash;&nbsp;({{$item.location_html nofilter}}){{/if}}
-												{{if $item.owner_self}}
-													{{include file="sub/delivery_count.tpl" delivery=$item.delivery}}
-												{{/if}}
-												{{if $item.direction}}
-													{{include file="sub/direction.tpl" direction=$item.direction}}
-												{{/if}}
-											</small>
-										</p>
-									</h5>
 								</div>
 							{{else}} {{* End of if $item.thread_level == 1 *}}
 								{{* contact info header for comments *}}
@@ -333,7 +317,7 @@ as the value of $top_child_total (this is done at the end of this file)
 								{{if $item.vote}}
 									{{if $item.vote.like}}
 										<button type="button"
-											class="btn-link button-likes{{if $item.responses.like.self}} active"
+											class="btn btn-link button-likes{{if $item.responses.like.self}} active"
 											aria-pressed="true{{/if}}" id="like-{{$item.id}}" title="{{$item.vote.like.0}}"
 											onclick="doLikeAction({{$item.id}}, 'like'{{if $item.responses.like.self}}, true{{/if}});"
 											data-toggle="button"><i class="fa fa-thumbs-up"
@@ -344,7 +328,7 @@ as the value of $top_child_total (this is done at the end of this file)
 									{{/if}}
 									{{if $item.vote.dislike}}
 										<button type="button"
-											class="btn-link button-likes{{if $item.responses.dislike.self}} active"
+											class="btn btn-link button-likes{{if $item.responses.dislike.self}} active"
 											aria-pressed="true{{/if}}" id="dislike-{{$item.id}}"
 											title="{{$item.vote.dislike.0}}"
 											onclick="doLikeAction({{$item.id}}, 'dislike'{{if $item.responses.dislike.self}}, true{{/if}});"
@@ -358,14 +342,14 @@ as the value of $top_child_total (this is done at the end of this file)
 								{{/if}}
 
 								{{if $item.remote_comment}}
-									<a href="{{$item.remote_comment.2}}" class="btn-link button-comments"
+									<a href="{{$item.remote_comment.2}}" class="btn btn-link button-comments"
 										title="{{$item.remote_comment.0}}"><i class="fa fa-commenting"
 											aria-hidden="true"></i>&nbsp;{{$item.remote_comment.1}}</a>
 								{{/if}}
 
 								{{* Button to open the comment text field *}}
 								{{if $item.comment_html}}
-									<button type="button" class="btn-link button-comments" id="comment-{{$item.id}}"
+									<button type="button" class="btn btn-link button-comments" id="comment-{{$item.id}}"
 										title="{{$item.switchcomment}}"
 										{{if $item.thread_level != 1}}onclick="openClose('item-comments-{{$item.id}}'); commentExpand({{$item.id}});"
 										{{else}}
@@ -383,7 +367,7 @@ as the value of $top_child_total (this is done at the end of this file)
 									{{/if}}
 									{{if $item.vote.announce}}
 										<button type="button"
-											class="btn-link button-announces{{if $item.responses.announce.self}} active"
+											class="btn btn-link button-announces{{if $item.responses.announce.self}} active"
 											aria-pressed="true{{/if}}" id="announce-{{$item.id}}"
 											title="{{$item.vote.announce.0}}"
 											onclick="doLikeAction({{$item.id}}, 'announce'{{if $item.responses.announce.self}}, true{{/if}});"
@@ -392,7 +376,7 @@ as the value of $top_child_total (this is done at the end of this file)
 										<span role="presentation" class="separator"></span>
 									{{/if}}
 									{{if $item.vote.share}}
-										<button type="button" class="btn-link button-votes" id="share-{{$item.id}}"
+										<button type="button" class="btn btn-link button-votes" id="share-{{$item.id}}"
 											title="{{$item.vote.share.0}}" onclick="jotShare({{$item.id}});"><i
 												class="fa fa-share" aria-hidden="true"></i>&nbsp;{{$item.vote.share.1}}</button>
 									{{/if}}
@@ -402,7 +386,7 @@ as the value of $top_child_total (this is done at the end of this file)
 								{{if $item.edpost || $item.tagger || $item.filer || $item.pin || $item.star || $item.subthread || $item.ignore || $item.drop.dropping}}
 									<span role="presentation" class="separator"></span>
 									<span class="more-links btn-group{{if $item.thread_level > 1}} dropup{{/if}}">
-										<button type="button" class="btn-link dropdown-toggle" data-toggle="dropdown"
+										<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
 											id="dropdownMenuOptions-{{$item.id}}" aria-haspopup="true" aria-expanded="false"
 											title="{{$item.menu}}"><i class="fa fa-ellipsis-h"
 												aria-hidden="true"></i>&nbsp;{{$item.menu}}</button>

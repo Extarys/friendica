@@ -1,20 +1,10 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPLv3-or-later
 
+//=require jquery_native.js
+//=require background_tasks.js
+
+
 var jotcache = ""; //The jot cache. We use it as cache to restore old/original jot content
-
-// jQuery alternative
-
-/**
- * Execute a function when the DOM is ready. Equivalent to $(document).ready()
- * @param {*} fn 
- */
-function __ready(fn) {
-	if (document.readyState != 'loading') {
-		fn();
-	} else {
-		document.addEventListener('DOMContentLoaded', fn);
-	}
-}
 
 
 function PWAPermNotification() {

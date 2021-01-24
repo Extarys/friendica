@@ -4,6 +4,7 @@ let sass = require('gulp-sass');
 sass.compiler = require('sass');
 //const Terser = require('terser');
 const terser = require('gulp-terser');
+const include = require('gulp-include');
 
 let css_out = __dirname + "/css";
 let js_out = __dirname + "/js";
@@ -24,6 +25,7 @@ function watchAll(cb) {
 
 function javascriptProd(cb) {
 	src('./source/js/index.js')
+		.pipe(include()).on('error', console.log)
 		.pipe(terser({}))
 		.pipe(dest(js_out));
 	cb();
@@ -31,6 +33,7 @@ function javascriptProd(cb) {
 
 function javascriptDev(cb) {
 	src('./source/js/index.js')
+		.pipe(include()).on('error', console.log)
 		.pipe(terser({ compress: false, mangle: false, format: { beautify: true } }))
 		.pipe(dest(js_out));
 	cb();

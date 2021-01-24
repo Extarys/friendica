@@ -23,7 +23,15 @@ body.remove-animation * {
 	-webkit-transition: height 0.3s;
 	-moz-transition: height 0.3s;
 	transition: height 0.3s;
+
+	&:focus {
+		height: 10rem;
+	}
 }
-#composeTextarea:focus {
-	height: 10rem;
+
+section.sectiontop {
+	&.tread-wrapper {
+		.heading .small-info {
+		}
+	}
 }

@@ -1,6 +1,4 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPLv3-or-later
-var jotcache = "";
-
 function __ready(fn) {
     if (document.readyState != "loading") {
         fn();
@@ -8,6 +6,45 @@ function __ready(fn) {
         document.addEventListener("DOMContentLoaded", fn);
     }
 }
+
+function __trigger(data) {
+    if (window.CustomEvent && typeof window.CustomEvent === "function") {
+        var event = new CustomEvent("my-event", data);
+    } else {
+        var event = document.createEvent("CustomEvent");
+        event.initCustomEvent("my-event", true, true, {
+            some: "data"
+        });
+    }
+    el.dispatchEvent(event);
+}
+
+exports.default = function() {
+    function NavUpdate() {
+        if (!stopped) {
+            var pingCmd = "ping?format=json" + (localUser != 0 ? "&uid=" + localUser : "");
+            $.get(pingCmd, (function(data) {
+                if (data.result) {
+                    $("nav").trigger("nav-update", data.result);
+                    [ "network", "profile", "community", "notes", "display", "contact" ].forEach((function(src) {
+                        if ($("#live-" + src).length) {
+                            liveUpdate(src);
+                        }
+                    }));
+                    if ($("#live-photos").length) {
+                        if (liking) {
+                            liking = 0;
+                            window.location.href = window.location.href;
+                        }
+                    }
+                }
+            }));
+        }
+        timer = setTimeout(NavUpdate, updateInterval);
+    }
+}();
+
+var jotcache = "";
 
 function PWAPermNotification() {
     Notification.requestPermission().then((function(result) {

@@ -22,7 +22,6 @@ body.remove-animation * {
   -moz-transition: height 0.3s;
   transition: height 0.3s;
 }
-
 #composeTextarea:focus {
   height: 10rem;
 }

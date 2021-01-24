@@ -3,7 +3,13 @@
 	href="compose/{{$posttype}}{{if $content}}?body={{$content}}{{/if}}" aria-label="{{$new_post}}"
 title="{{$new_post}}"><i class="fa fa-pencil-square-o fa-2x"></i></a> *}}
 <div id="text-composer" class="card border-primary">
-	<div class="card-header">{{$new_post}}</div>
+	<div class="card-header">
+
+		<div class="align-self-center">{{$new_post}}</div>
+		<button class="btn btn-sm btn-outline-secondary float-end no-padding">
+			<i class="fa fa-cog fa-fw"></i>
+		</button>
+	</div>
 	<div class="card-body">
 		{{* <h5 class="card-title">Primary card title</h5> *}}
 		<div class="card-text">
@@ -14,6 +20,14 @@ title="{{$new_post}}"><i class="fa fa-pencil-square-o fa-2x"></i></a> *}}
 		</div>
 	</div>
 	<div class="card-footer bg-transparent p-1">
+		<ul class="nav nav-pills float-start">
+			<li>
+				<button class="btn btn-secondary" name="submit">
+					<i class="fa fa-fw fa-user" aria-hidden="true"></i>
+					<span class="visually-hidden">Post permission</span>
+				</button>
+			</li>
+		</ul>
 		<button class="btn btn-primary float-end" type="submit" id="compose-submit" name="submit"
 			data-loading-text="{{$loading}}">
 			<i class="fa fa-paper-plane fa-fw" aria-hidden="true"></i> {{$share}}
